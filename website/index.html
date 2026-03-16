@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singh Motors</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <h1 class="logo">
+       <img src="images/logo2.jpeg" alt="Singh Motors Logo">
+       <u>Singh Motors</u>
+    </h1>
+   <nav>
+      <div class="dropdown">
+  <a href="#">Cars ▾</a>
+  <div class="dropdown-content">
+   <a href="cars.html">Popular Cars</a>
+    <a href="luxury.html">Luxury Cars</a>
+  </div>
+</div>
+      <a href="spareparts.html">Spare Parts</a>
+      <a href="#services">Our Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+  <div class="hero-content">
+    <h1>Premium Cars at Best Prices</h1>
+    <p>Buy, Sell & Enquire Cars with Singh Motors.</p>
+
+    <!-- Professional Buttons Group -->
+    <div class="hero-buttons">
+      <button class="hero-btn secondary-btn" onclick="openDashboard()">View Cars</button>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center; margin: 15px 0; font-weight:bold;">
+  ✔ Genuine Parts | 🚚 Fast Delivery | 🔒 Secure Purchase
+</div>
+  <!-- Professional Enquiry Dropdown Section -->
+<section id="enquirySection" class="enquiry-section">
+  <div class="enquiry-container">
+    <h2>Car Enquiry Form</h2>
+    <p>Fill the form and our team will contact you shortly.</p>
+
+    <form onsubmit="return submitEnquiryForm()">
+      <div class="form-row">
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+      </div>
+
+      <div class="form-row">
+        <input type="email" placeholder="Email Address" required>
+        <select required>
+          <option value="">Select Car Model</option>
+          <option>Hyundai Creta</option>
+          <option>Maruti Swift</option>
+          <option>Toyota Fortuner</option>
+        </select>
+      </div>
+
+      <textarea placeholder="Your Message (Optional)"></textarea>
+
+      <button type="submit" class="submit-btn">Submit Enquiry</button>
+    </form>
+  </div>
+</section>
+
+  <section id="cars" class="section">
+<h2 class="section-title">Popular Cars</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="images/creta.jpeg" alt="Hyundai Creta">
+<h3>Hyundai Creta</h3>
+<p>₹10,50,000</p>
+<button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+<div class="card">
+<img src="images/swift.jpeg" alt="Maruti Swift">
+<h3>Maruti Swift</h3>
+<p>₹6,20,000</p>
+<button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+<div class="card">
+  <img src="images/baleno.jpg" alt="Maruti Baleno" width="200">
+  <h3>Maruti Baleno</h3>
+  <p>&#8377;7,50,000</p>
+  <button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+<div class="card">
+  <img src="images/i20.jpg" alt="Hyundai i20" width="200">
+  <h3>Hyundai i20</h3>
+  <p>&#8377;7,90,000</p>
+  <button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+<div class="card">
+  <img src="images/naxon.jpg" alt="Tata Nexon" width="200">
+  <h3>Tata Nexon</h3>
+  <p>&#8377;8,20,000</p>
+  <button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+<div class="card">
+  <img src="images/brezza.jpg" alt="Maruti Brezza" width="200">
+  <h3>Maruti Brezza</h3>
+  <p>&#8377;8,50,000</p>
+  <button class="enquire-btn" onclick="openEnquiry(this)">Enquire</button>
+</div>
+
+</div>
+</section>
+
+  <section id="parts" class="section">
+  <h2 class="section-title">Spare Parts</h2>
+  <p>Items in Cart: <span id="cartCount">0</span></p>
+
+  <div class="cards">
+
+    <!-- Engine Oil -->
+    <div class="card">
+      <img src="images/oil.jpg" alt="Engine Oil" width="200">
+      <h3>Engine Oil</h3>
+      <p>₹1,200</p>
+      <button onclick="addToCart()">Add</button>
+      <button onclick="removeFromCart()">Remove</button>
+    </div>
+
+    <!-- Car Battery -->
+    <div class="card">
+      <img src="images/battery.jpg" alt="Car Battery" width="200">
+      <h3>Car Battery</h3>
+      <p>₹5,500</p>
+      <button onclick="addToCart()">Add</button>
+  <button onclick="removeFromCart()">Remove</button>
+    </div>
+
+    <!-- Brake Pads -->
+    <div class="card">
+      <img src="images/breakpad.jpg" alt="Brake Pads" width="200">
+      <h3>Brake Pads</h3>
+      <p>₹2,000</p>
+      <button onclick="addToCart()">Add</button>
+  <button onclick="removeFromCart()">Remove</button>
+    </div>
+
+    <!-- Headlight -->
+    <div class="card">
+      <img src="images/headlights.jpg" alt="Headlights" width="200">
+      <h3>Headlights</h3>
+      <p>₹3,500</p>
+      <button onclick="addToCart()">Add</button>
+  <button onclick="removeFromCart()">Remove</button>
+    </div>
+
+    <!-- Tyres -->
+    <div class="card">
+      <img src="images/tyres.jpg.avif" alt="Tyres" width="200">
+      <h3>Car Tyres</h3>
+      <p>₹6,000</p>
+      <button onclick="addToCart()">Add</button>
+  <button onclick="removeFromCart()">Remove</button>
+    </div>
+
+    <div class="card">
+  <img src="images/brake.jpg">
+  <h3>Brake Disc</h3>
+  <p>₹4,500</p>
+  <button>Enquire</button>
+</div>
+
+  </div>
+
+<section id="services" class="services">
+<h2 class="section-title">Our Services</h2>
+  <div class="service-container">
+
+    <div class="service-card">
+      <h3>🚗 Car Sales</h3>
+      <p>Buy premium and popular cars at the best prices.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🔧 Car Service</h3>
+      <p>Professional servicing and maintenance for all vehicles.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>⚙️ Genuine Spare Parts</h3>
+      <p>High quality original spare parts for every car model.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🔍 Car Inspection</h3>
+      <p>Complete vehicle inspection before purchase.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>📄 Insurance Assistance</h3>
+      <p>Easy car insurance and documentation support.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>🚚 Fast Delivery</h3>
+      <p>Quick delivery of cars and spare parts.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section id="reviews" class="reviews">
+  <h2 class="section-title">Customer Reviews</h2>
+
+  <div class="review-container">
+
+    <button class="scroll-btn left" onclick="scrollReviews(-1)">❮</button>
+
+    <div class="review-cards" id="reviewSlider">
+
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Genuine spare parts and fast service. Highly recommended!</p>
+        <h4>- Aman Singh</h4>
+      </div>
+
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Best prices for car spare parts in the area.</p>
+        <h4>- Rahul Sharma</h4>
+      </div>
+
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Very helpful and trusted shop. Good quality products.</p>
+        <h4>- Gurpreet Kaur</h4>
+      </div>
+
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Amazing service and genuine products.</p>
+        <h4>- Simran Kaur</h4>
+      </div>
+
+      <div class="review">
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>Trusted automobile store in the city.</p>
+        <h4>- Harpreet Singh</h4>
+      </div>
+
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollReviews(1)">❯</button>
+
+  </div>
+</section>
+
+</section>
+
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <form onsubmit="return submitForm()">
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send Enquiry</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>🚗 Singh Motors</h3>
+      <p>Your trusted destination for quality cars and genuine spare parts. We believe in trust, service, and customer satisfaction.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <a href="#cars">Cars</a><br>
+      <a href="#parts">Spare Parts</a><br>
+      <a href="#services">Our Services</a><br>
+      <a href="#reviews">Customer Reviews</a><br>
+      <a href="#contact">Contact Us</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Contact Info</h3>
+      <p>📍 Location: JAJA BYEPASS, TANDA, Near GRD school, India</p>
+      <p>📞 Phone: 8528525300</p>
+      <p>📧 Email: singhmotors@email.com</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Business Hours</h3>
+      <p>Mon – Sat: 9 AM – 7 PM</p>
+      <p>Sunday: Closed</p>
+    </div>
+
+  </div>
+
+  <p class="copyright">© 2026 Singh Motors | All Rights Reserved</p>
+</footer>
+
+<!-- Enquiry Popup Modal -->
+<div id="enquiryModal" class="modal">
+  <div class="modal-box">
+    <span class="close-modal" onclick="closeEnquiry()">&times;</span>
+    <h2>🚗 Car Enquiry - Singh Motors</h2>
+
+    <form onsubmit="return submitPopupEnquiry()">
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      
+      <!-- Auto Car Name -->
+      <input type="text" id="carNameField" readonly>
+
+      <textarea placeholder="Your Message (Optional)"></textarea>
+      <button type="submit" class="submit-btn">Send Enquiry</button>
+    </form>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
