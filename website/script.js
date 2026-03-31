@@ -77,19 +77,25 @@ function sellCar() {
   alert("Your car details submitted! We will contact you.");
   return false;
 }
-let cart = 0;
 
-function addToCart() {
-  cart++;
-  document.getElementById("cartCount").innerText = cart;
+function addToCart(button) {
+  const card = button.closest(".card");
+
+  const name = card.querySelector("h3").innerText;
+  const priceText = card.querySelector("p").innerText;
+
+  const price = parseInt(priceText.replace(/[₹,]/g, ""));
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({ name, price });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Redirect to cart page
+  window.location.href = "cart.html";
 }
 
-function removeFromCart() {
-  if (cart > 0) {
-    cart--;
-    document.getElementById("cartCount").innerText = cart;
-  }
-}
 function showMoreParts() {
   document.getElementById("moreParts").style.display = "block";
 }
