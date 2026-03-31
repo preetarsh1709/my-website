@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Singh Motors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <h1>🛒 Your Cart</h1>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Cart Items</h2>
+
+  <div id="cartItems"></div>
+
+  <h3 id="totalPrice"></h3>
+
+  <button onclick="checkout()">Proceed to Order</button>
+</section>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart() {
+  let container = document.getElementById("cartItems");
+  let total = 0;
+
+  container.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    container.innerHTML += `
+      <div class="card">
+        <h3>${item.name}</h3>
+        <p>₹${item.price}</p>
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("totalPrice").innerText = "Total: ₹" + total;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+}
+
+function checkout() {
+  alert("Order placed successfully 🚗");
+  localStorage.removeItem("cart");
+  location.reload();
+}
+
+displayCart();
+</script>
+
+</body>
+</html>
