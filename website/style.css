@@ -670,3 +670,13 @@ input, select {
   color: rgb(150, 48, 48);
   font-weight: 700;
 }
+#cartItems {
+  display: flex;
+  flex-wrap: wrap;   /* allows multiple rows if many items */
+  gap: 20px;
+  justify-content: center; /* center horizontally */
+}
+
+#cartItems .card {
+  width: 250px;   /* fixed width for horizontal layout */
+}
