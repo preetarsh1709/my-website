@@ -122,32 +122,28 @@ button:hover {
    <img src="images/oil.jpg" alt="Engine Oil" width="150">
     <h3>Engine Oil</h3>
     <p>₹1,200</p>
-    <button onclick="addToCart()">Add</button>
-    <button onclick="removeFromCart()">Remove</button>
+    <button onclick="addToCart(this)">Add</button>
   </div>
 
   <div class="card">
     <img src="images/battery.jpg" alt="Battery" >
     <h3>Car Battery</h3>
     <p>₹5,500</p>
-    <button onclick="addToCart()">Add</button>
-    <button onclick="removeFromCart()">Remove</button>
+     <button onclick="addToCart(this)">Add</button>
   </div>
 
   <div class="card">
     <img src="images/tyres.jpg.avif" alt="Tyre">
     <h3>Car Tyre</h3>
     <p>₹4,000</p>
-    <button onclick="addToCart()">Add</button>
-    <button onclick="removeFromCart()">Remove</button>
+    <button onclick="addToCart(this)">Add</button>
   </div>
 
   <div class="card">
     <img src="images/breakpad.jpg" alt="Brake Pads" >
     <h3>Brake Pads</h3>
     <p>₹2,200</p>
-    <button onclick="addToCart()">Add</button>
-    <button onclick="removeFromCart()">Remove</button>
+    <button onclick="addToCart(this)">Add</button>
   </div>
 
 </div>
@@ -164,32 +160,28 @@ button:hover {
       <img src="images/headlights.jpg" width="200">
       <h3>Car Headlight</h3>
       <p>₹3,000</p>
-      <button onclick="addToCart()">Add</button>
-      <button onclick="removeFromCart()">Remove</button>
+      <button onclick="addToCart(this)">Add</button>
     </div>
 
     <div class="card">
       <img src="images/Air-Filters-group-web.webp" width="200">
       <h3>Air Filter</h3>
       <p>₹800</p>
-      <button onclick="addToCart()">Add</button>
-      <button onclick="removeFromCart()">Remove</button>
+     <button onclick="addToCart(this)">Add</button>
     </div>
 
     <div class="card">
-      <img src="images/wiper.jpg" width="200">
+      <img src="images/Wiper box.jpg" width="200">
       <h3>Wiper Blades</h3>
       <p>₹600</p>
-      <button onclick="addToCart()">Add</button>
-      <button onclick="removeFromCart()">Remove</button>
+     <button onclick="addToCart(this)">Add</button>
     </div>
     
     <div class="card">
       <img src="images/radiator.jpg">
       <h3>Car Radiator</h3>
       <p>₹7,500</p>
-      <button onclick="addToCart()">Add</button>
-      <button onclick="removeFromCart()">Remove</button>
+      <button onclick="addToCart(this)">Add</button>
     </div>
       <div class="card">
   <img src="images/brake.jpg">
@@ -201,8 +193,7 @@ button:hover {
       <img src="images/spark.jpg" width="200">
       <h3>Spark Plug</h3>
       <p>₹350</p>
-      <button onclick="addToCart()">Add</button>
-      <button onclick="removeFromCart()">Remove</button>
+      <button onclick="addToCart(this)">Add</button>
     </div>
     
 <div style="
@@ -227,18 +218,24 @@ button:hover {
 </footer>
 
 <script>
-let cart = 0;
 
-function addToCart() {
-  cart++;
-  document.getElementById("cartCount").innerText = cart;
-}
+function addToCart(button) {
+  const card = button.closest(".card");
 
-function removeFromCart() {
-  if (cart > 0) {
-    cart--;
-    document.getElementById("cartCount").innerText = cart;
-  }
+  const name = card.querySelector("h3").innerText;
+  const priceText = card.querySelector("p").innerText;
+  const price = parseInt(priceText.replace(/[₹,]/g, ""));
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({ name, price });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert(name + " added to cart 🛒");
+
+  // redirect to cart page
+  window.location.href = "cart.html";
 }
 
 function showMoreParts() {
